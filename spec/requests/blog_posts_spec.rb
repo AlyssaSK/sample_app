@@ -12,7 +12,7 @@ describe "BlogPosts" do
     it { should_not have_title('| Home') }
   end
 
- 
+
 
   describe "Contact page" do
     before { visit contact_path }

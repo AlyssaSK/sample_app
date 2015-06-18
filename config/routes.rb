@@ -1,4 +1,6 @@
 SampleApp::Application.routes.draw do
+  get 'users/new'
+
   # You can have the root of your site routed with "root"
   root 'blog_posts#home'
   # ћаршруты дл€ использовани€ в контроллерах и представлени€х:
@@ -12,6 +14,7 @@ SampleApp::Application.routes.draw do
   match '/help',    to: 'blog_posts#help',    via: 'get' # замен€ет get 'blog_posts/help'
   match '/about',   to: 'blog_posts#about',   via: 'get' # замен€ет get 'blog_posts/about'
   match '/contact', to: 'blog_posts#contact', via: 'get' # замен€ет get 'blog_posts/contact'
+  match '/signup',  to: 'users#new',          via: 'get' # замен€ет get 'users/new'
 
   # ћаршруты дл€ использовани€ в контроллерах и представлени€х:
   # about_path -> '/about'
