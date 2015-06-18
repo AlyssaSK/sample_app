@@ -1,5 +1,6 @@
 SampleApp::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   get 'users/new'
 
   # You can have the root of your site routed with "root"
@@ -16,7 +17,8 @@ SampleApp::Application.routes.draw do
   match '/about',   to: 'blog_posts#about',   via: 'get' # замен€ет get 'blog_posts/about'
   match '/contact', to: 'blog_posts#contact', via: 'get' # замен€ет get 'blog_posts/contact'
   match '/signup',  to: 'users#new',          via: 'get' # замен€ет get 'users/new'
-
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   # ћаршруты дл€ использовани€ в контроллерах и представлени€х:
   # about_path -> '/about'
   # about_url  -> 'http://localhost:3000/about'
