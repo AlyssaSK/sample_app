@@ -1,4 +1,5 @@
 SampleApp::Application.routes.draw do
+  resources :users
   get 'users/new'
 
   # You can have the root of your site routed with "root"
