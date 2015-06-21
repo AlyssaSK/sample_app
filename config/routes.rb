@@ -1,17 +1,16 @@
 SampleApp::Application.routes.draw do
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
-  get 'users/new'
+  resources :sessions,   only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
 
   # You can have the root of your site routed with "root"
   root 'blog_posts#home'
+
   # Маршруты для использования в контроллерах и представлениях:
   # root_path -> '/'
   # root_url  -> 'http://localhost:3000/'
 
-  # Маршруты для статических страниц.
-  # устанавливает соответствие между GET запросом к ’/about’ и именованным маршрутом,
-  # а также направляет его в about действие контроллера BlogPostsController
+# Маршруты для статических страниц.
   match '/',        to: 'blog_posts#home',    via: 'get' # заменяет get 'blog_posts/home'
   match '/help',    to: 'blog_posts#help',    via: 'get' # заменяет get 'blog_posts/help'
   match '/about',   to: 'blog_posts#about',   via: 'get' # заменяет get 'blog_posts/about'
@@ -24,7 +23,8 @@ SampleApp::Application.routes.draw do
   # about_url  -> 'http://localhost:3000/about'
 
   # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  # Приоритет зависит от порядка создания: первый создан -> самый высокий приоритет
+  # Можно посмотреть маршруты командой "rake routes".
 
 
 
